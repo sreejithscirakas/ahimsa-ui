@@ -520,26 +520,34 @@ document.getElementById("contact-form").addEventListener("submit", async (event)
     submitButton.textContent = "Get in touch";
 });
 </script>
+
 <script>
-    const video = document.getElementById('videofile');
+  const video = document.getElementById('videofile');
 
-    const loadVideo = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                video.src = video.getAttribute('data-src');
-                video.load();
-                video.play();
-                observer.unobserve(video);
-            }
-        });
-    };
+  const loadVideo = (entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              // Set the src attribute to the data-src value
+              video.src = video.getAttribute('data-src');
+              // Load the video
+              video.load();
+              // Optionally, start playing the video after a short delay
+              setTimeout(() => {
+                  video.play();
+              }, 500); // Adjust the delay as needed
+              // Stop observing the video element
+              observer.unobserve(video);
+          }
+      });
+  };
 
-    const observer = new IntersectionObserver(loadVideo, {
-        threshold: 0.1
-    });
+  const observer = new IntersectionObserver(loadVideo, {
+      threshold: 0.0 // Load when 20% of the video is in view
+  });
 
-    observer.observe(video);
+  observer.observe(video);
 </script>
+
 
   </body>
 </html>
