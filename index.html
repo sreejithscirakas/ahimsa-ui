@@ -37,8 +37,10 @@
     </header>
     <div class="section-hero one" id="home">
       <div class="hero-border">
-        <div class="image-container">
-          <img src="./img/ahimsa.webp" alt="Your Image" class="foreground-image">
+        <div class="image-container-border">
+          <div class="image-container">
+            <img src="./img/ahimsa.webp" alt="Your Image" class="foreground-image">
+          </div>
         </div>
         <div class="hero-below-txt">Addressing health inequities from around the world…</div>
       </div>
@@ -231,9 +233,14 @@
     </div>
     <div class="section-experiences" id="experiences">
       <div class="video-container">
-        <video id="videofile" autoplay muted loop controls preload="none" data-src="./img/video.mp4">
+        
+
+<video autoplay muted loop>
+    <source src="./img/video.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
+
+
         
         <div class="content">
           <div class="section-experiences-img-border">
@@ -254,10 +261,19 @@
     </div>
     <div class="section-getintouch" id="getin-touch">
       <div class="section-getintouchbg">
-        <img src="./img/bg.webp" alt="Your Image" class="getintouchbg-img" loading="lazy">
-        <a href="#home">
-          <img src="./img/bg2.webp" alt="Your Image" class="getintouchbg-img-mv" loading="lazy">
-        </a>
+        <div class="footer-bg">
+          <img src="./img/bgc.webp" alt="Your Image" loading="lazy">
+        </div>
+        <div class="footer-bg-logo">
+          <a href="#home">
+            <img src="./img/bgc1.webp" alt="Your Image" loading="lazy">
+          </a>
+        </div>
+        <div class="footer-bg-logo-mv">
+          <a href="#home">
+            <img src="./img/bg2.webp" alt="Your Image" loading="lazy">
+          </a>
+        </div>
         <div class="section-border"></div>
         <div class="address"> Ahimsa Consulting Pvt. Ltd, <br> 24 Bilsthorpe Lane <br> RD4, Hamilton 3284, <br> New Zealand <br>
         </div>
@@ -524,32 +540,7 @@ document.getElementById("contact-form").addEventListener("submit", async (event)
 });
 </script>
 
-<script>
-  const video = document.getElementById('videofile');
 
-  const loadVideo = (entries, observer) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              // Set the src attribute to the data-src value
-              video.src = video.getAttribute('data-src');
-              // Load the video
-              video.load();
-              // Optionally, start playing the video after a short delay
-              setTimeout(() => {
-                  video.play();
-              }, 500); // Adjust the delay as needed
-              // Stop observing the video element
-              observer.unobserve(video);
-          }
-      });
-  };
-
-  const observer = new IntersectionObserver(loadVideo, {
-    threshold: 0.0 // Load when any part of the video is in view
-  });
-
-  observer.observe(video);
-</script>
 
 
   </body>
